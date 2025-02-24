@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Container, Card, Row, Col, FormControl } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import axios from 'axios';
 
@@ -31,7 +31,12 @@ const PokemonList = () => {
           <Navbar.Brand href="#">Pokeverse</Navbar.Brand>
         </Container>
       </Navbar>
-
+      <FormControl
+            type="text"
+            placeholder="Search..."
+            className="mr-sm-2"
+            onChange={e => setSearchTerm(e.target.value)}
+          />
       <Row>
         {pokemons.map((pokemon, index) => (
           <Col key={index} sm={4} md={3} lg={2}>
